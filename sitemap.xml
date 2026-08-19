@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://YOURDOMAIN.com/</loc><priority>1.0</priority></url>
-  <url><loc>https://YOURDOMAIN.com/word-counter.html</loc><priority>0.8</priority></url>
-  <url><loc>https://YOURDOMAIN.com/case-converter.html</loc><priority>0.8</priority></url>
-  <url><loc>https://YOURDOMAIN.com/percentage-calculator.html</loc><priority>0.8</priority></url>
-  <url><loc>https://YOURDOMAIN.com/qr-code-generator.html</loc><priority>0.8</priority></url>
-  <url><loc>https://YOURDOMAIN.com/base64-encoder-decoder.html</loc><priority>0.8</priority></url>
+  <url><loc>https://shoppingfinds24hr-ui.github.io/quicktools/</loc><priority>1.0</priority></url>
+  <url><loc>https://shoppingfinds24hr-ui.github.io/quicktools/word-counter.html</loc><priority>0.8</priority></url>
+  <url><loc>https://shoppingfinds24hr-ui.github.io/quicktools/case-converter.html</loc><priority>0.8</priority></url>
+  <url><loc>https://shoppingfinds24hr-ui.github.io/quicktools/percentage-calculator.html</loc><priority>0.8</priority></url>
+  <url><loc>https://shoppingfinds24hr-ui.github.io/quicktools/qr-code-generator.html</loc><priority>0.8</priority></url>
+  <url><loc>https://shoppingfinds24hr-ui.github.io/quicktools/base64-encoder-decoder.html</loc><priority>0.8</priority></url>
 </urlset>
