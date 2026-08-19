@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Case Converter - UPPERCASE, lowercase, Title Case Online</title>
+<meta name="description" content="Convert text between UPPERCASE, lowercase, Title Case, and Sentence case instantly. Free online case converter tool.">
+<link rel="canonical" href="https://YOURDOMAIN.com/case-converter.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="adminBanner">Admin mode active — <a href="#" onclick="closeAdmin();return false;" style="color:inherit;">exit</a></div>
+<header>
+  <a class="logo" href="index.html"><h1 id="siteTitle">Quick<span>Tools</span></h1></a>
+  <nav><a href="index.html">All Tools</a><a href="#" onclick="openAdminLogin();return false;">Admin</a></nav>
+</header>
+<div class="ad-slot"><!-- AdSense ad unit code goes here: Top Banner --></div>
+<main>
+  <p id="announcement"></p>
+  <p class="breadcrumb"><a href="index.html">Home</a> / Case Converter</p>
+  <h2>Case Converter</h2>
+  <p class="subtitle">Switch text between UPPERCASE, lowercase, Title Case, and Sentence case.</p>
+
+  <div class="tool-box">
+    <textarea id="caseInput" placeholder="Type or paste text here..."></textarea>
+    <div>
+      <button onclick="convertCase('upper')">UPPERCASE</button>
+      <button onclick="convertCase('lower')">lowercase</button>
+      <button onclick="convertCase('title')">Title Case</button>
+      <button onclick="convertCase('sentence')">Sentence case</button>
+      <button class="secondary" onclick="copyText('caseInput')">Copy</button>
+    </div>
+  </div>
+
+  <div class="ad-slot"><!-- AdSense ad unit code goes here: In-content --></div>
+
+  <div class="content-block">
+    <h3>When do you need a case converter?</h3>
+    <p>Writers, students, and marketers often need to quickly reformat text — turning a shouty all-caps heading into normal sentence case, or fixing a title that wasn't capitalized correctly. Instead of retyping everything, paste it here and convert with one click.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>How to use it</h3>
+    <p>1. Paste your text into the box.<br>2. Click the case style you want.<br>3. Copy the converted result with the Copy button.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq-item"><h4>What's the difference between Title Case and Sentence case?</h4><p>Title Case capitalizes the first letter of every word; Sentence case only capitalizes the first letter of each sentence.</p></div>
+    <div class="faq-item"><h4>Is there a text length limit?</h4><p>No practical limit — it works entirely in your browser.</p></div>
+  </div>
+</main>
+<footer>© 2026 QuickTools. All tools are free to use.</footer>
+
+<div class="modal-bg" id="loginModal">
+  <div class="modal">
+    <h2>Admin Login</h2>
+    <input id="adminPass" type="password" placeholder="Enter admin password">
+    <button onclick="tryLogin()">Login</button>
+    <button class="secondary" onclick="closeModal('loginModal')">Cancel</button>
+  </div>
+</div>
+<div class="modal-bg" id="adminModal">
+  <div class="modal" style="max-width:520px;">
+    <h2>Admin Panel</h2>
+    <label style="font-size:13px;color:var(--muted);">Site Title</label>
+    <input id="adminSiteTitle" style="margin-bottom:10px;">
+    <label style="font-size:13px;color:var(--muted);">Announcement Bar Text</label>
+    <input id="adminAnnouncement" style="margin-bottom:14px;">
+    <p style="font-size:13px;color:var(--muted);margin-bottom:6px;">Toggle visible tools:</p>
+    <div id="adminToolToggles"></div>
+    <div style="margin-top:16px;">
+      <button onclick="saveAdminSettings()">Save Changes</button>
+      <button class="secondary" onclick="closeModal('adminModal')">Close</button>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Percentage Calculator - Quick Percentage Math Online</title>
+<meta name="description" content="Calculate percentages instantly. Find what percent of a number is, percentage increase/decrease, and more. Free online percentage calculator.">
+<link rel="canonical" href="https://YOURDOMAIN.com/percentage-calculator.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="adminBanner">Admin mode active — <a href="#" onclick="closeAdmin();return false;" style="color:inherit;">exit</a></div>
+<header>
+  <a class="logo" href="index.html"><h1 id="siteTitle">Quick<span>Tools</span></h1></a>
+  <nav><a href="index.html">All Tools</a><a href="#" onclick="openAdminLogin();return false;">Admin</a></nav>
+</header>
+<div class="ad-slot"><!-- AdSense ad unit code goes here: Top Banner --></div>
+<main>
+  <p id="announcement"></p>
+  <p class="breadcrumb"><a href="index.html">Home</a> / Percentage Calculator</p>
+  <h2>Percentage Calculator</h2>
+  <p class="subtitle">Quickly find what a percentage of a number is.</p>
+
+  <div class="tool-box">
+    <p style="color:var(--muted);font-size:14px;">What is <input style="width:80px;display:inline-block;" id="pA" type="number" value="20"> % of <input style="width:110px;display:inline-block;" id="pB" type="number" value="500"> ?</p>
+    <button onclick="calcPercent()">Calculate</button>
+    <div class="stats"><div class="stat"><b id="pResult">100</b>Result</div></div>
+  </div>
+
+  <div class="ad-slot"><!-- AdSense ad unit code goes here: In-content --></div>
+
+  <div class="content-block">
+    <h3>Common uses for percentage calculations</h3>
+    <p>Percentage math comes up constantly — working out a discount at checkout, calculating a tip, figuring out exam scores, or splitting a commission. This calculator gives you the answer instantly without doing the math by hand.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>How to use it</h3>
+    <p>Enter the percentage value in the first box and the total number in the second box, then click Calculate to see the result instantly.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq-item"><h4>How is percentage calculated?</h4><p>Percentage of a number = (percentage ÷ 100) × number.</p></div>
+    <div class="faq-item"><h4>Can I use decimals?</h4><p>Yes, both fields accept decimal values.</p></div>
+  </div>
+</main>
+<footer>© 2026 QuickTools. All tools are free to use.</footer>
+
+<div class="modal-bg" id="loginModal">
+  <div class="modal">
+    <h2>Admin Login</h2>
+    <input id="adminPass" type="password" placeholder="Enter admin password">
+    <button onclick="tryLogin()">Login</button>
+    <button class="secondary" onclick="closeModal('loginModal')">Cancel</button>
+  </div>
+</div>
+<div class="modal-bg" id="adminModal">
+  <div class="modal" style="max-width:520px;">
+    <h2>Admin Panel</h2>
+    <label style="font-size:13px;color:var(--muted);">Site Title</label>
+    <input id="adminSiteTitle" style="margin-bottom:10px;">
+    <label style="font-size:13px;color:var(--muted);">Announcement Bar Text</label>
+    <input id="adminAnnouncement" style="margin-bottom:14px;">
+    <p style="font-size:13px;color:var(--muted);margin-bottom:6px;">Toggle visible tools:</p>
+    <div id="adminToolToggles"></div>
+    <div style="margin-top:16px;">
+      <button onclick="saveAdminSettings()">Save Changes</button>
+      <button class="secondary" onclick="closeModal('adminModal')">Close</button>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

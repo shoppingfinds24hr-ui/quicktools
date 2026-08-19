@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Word Counter Tool - Count Words, Characters & Sentences Online</title>
+<meta name="description" content="Free online word counter. Instantly count words, characters, sentences, and paragraphs as you type. No signup required.">
+<link rel="canonical" href="https://YOURDOMAIN.com/word-counter.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="adminBanner">Admin mode active — <a href="#" onclick="closeAdmin();return false;" style="color:inherit;">exit</a></div>
+<header>
+  <a class="logo" href="index.html"><h1 id="siteTitle">Quick<span>Tools</span></h1></a>
+  <nav><a href="index.html">All Tools</a><a href="#" onclick="openAdminLogin();return false;">Admin</a></nav>
+</header>
+<div class="ad-slot"><!-- AdSense ad unit code goes here: Top Banner --></div>
+<main>
+  <p id="announcement"></p>
+  <p class="breadcrumb"><a href="index.html">Home</a> / Word Counter</p>
+  <h2>Word Counter</h2>
+  <p class="subtitle">Count words, characters, sentences, and paragraphs in real time.</p>
+
+  <div class="tool-box">
+    <textarea id="wcInput" placeholder="Paste or type your text here..." oninput="updateWC()"></textarea>
+    <div class="stats">
+      <div class="stat"><b id="wcWords">0</b>Words</div>
+      <div class="stat"><b id="wcChars">0</b>Characters</div>
+      <div class="stat"><b id="wcCharsNoSpace">0</b>No spaces</div>
+      <div class="stat"><b id="wcSentences">0</b>Sentences</div>
+      <div class="stat"><b id="wcParas">0</b>Paragraphs</div>
+    </div>
+  </div>
+
+  <div class="ad-slot"><!-- AdSense ad unit code goes here: In-content --></div>
+
+  <div class="content-block">
+    <h3>Why count words and characters?</h3>
+    <p>Word and character counts matter for essays with strict limits, social media posts (like X's 280-character cap), SEO meta descriptions, resumes, and academic assignments. This tool updates live as you type or paste, so you always know exactly where you stand before you submit or publish.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>How to use the Word Counter</h3>
+    <p>1. Paste or type your text into the box above.<br>
+    2. Word, character, sentence, and paragraph counts update automatically.<br>
+    3. Edit your text and watch the numbers change in real time — no button clicks needed.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq-item"><h4>Is this word counter free?</h4><p>Yes, completely free with no signup or download required.</p></div>
+    <div class="faq-item"><h4>Does it count spaces as characters?</h4><p>The "Characters" stat includes spaces; "No spaces" shows the count excluding them.</p></div>
+    <div class="faq-item"><h4>Is my text stored anywhere?</h4><p>No. Everything runs in your browser — nothing is uploaded or saved.</p></div>
+  </div>
+</main>
+<footer>© 2026 QuickTools. All tools are free to use.</footer>
+
+<div class="modal-bg" id="loginModal">
+  <div class="modal">
+    <h2>Admin Login</h2>
+    <input id="adminPass" type="password" placeholder="Enter admin password">
+    <button onclick="tryLogin()">Login</button>
+    <button class="secondary" onclick="closeModal('loginModal')">Cancel</button>
+  </div>
+</div>
+<div class="modal-bg" id="adminModal">
+  <div class="modal" style="max-width:520px;">
+    <h2>Admin Panel</h2>
+    <label style="font-size:13px;color:var(--muted);">Site Title</label>
+    <input id="adminSiteTitle" style="margin-bottom:10px;">
+    <label style="font-size:13px;color:var(--muted);">Announcement Bar Text</label>
+    <input id="adminAnnouncement" style="margin-bottom:14px;">
+    <p style="font-size:13px;color:var(--muted);margin-bottom:6px;">Toggle visible tools:</p>
+    <div id="adminToolToggles"></div>
+    <div style="margin-top:16px;">
+      <button onclick="saveAdminSettings()">Save Changes</button>
+      <button class="secondary" onclick="closeModal('adminModal')">Close</button>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

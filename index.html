@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuickTools - Free Online Tools: Word Counter, QR Generator, Calculators</title>
+<meta name="description" content="Free online tools including word counter, case converter, percentage calculator, QR code generator, and Base64 encoder. No signup, no download required.">
+<link rel="canonical" href="https://YOURDOMAIN.com/">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="adminBanner">Admin mode active — <a href="#" onclick="closeAdmin();return false;" style="color:inherit;">exit</a></div>
+<header>
+  <a class="logo" href="index.html"><h1 id="siteTitle">Quick<span>Tools</span></h1></a>
+  <nav><a href="#" onclick="openAdminLogin();return false;">Admin</a></nav>
+</header>
+<div class="ad-slot"><!-- AdSense ad unit code goes here: Top Banner --></div>
+<main>
+  <p id="announcement"></p>
+  <h2>Free Online Tools</h2>
+  <p class="subtitle">Simple, fast tools that work right in your browser. No signup, no downloads.</p>
+  <div class="grid" id="toolGrid"></div>
+
+  <div class="content-block">
+    <h3>Why QuickTools?</h3>
+    <p>Every tool on this site runs instantly in your browser — nothing to install, nothing to sign up for, and your text or files never get uploaded anywhere. Whether you're writing an essay, formatting a document, calculating a discount, or generating a QR code for your business card, QuickTools gets it done in seconds.</p>
+  </div>
+  <div class="ad-slot"><!-- AdSense ad unit code goes here: In-content --></div>
+</main>
+<footer>© 2026 QuickTools. All tools are free to use.</footer>
+
+<div class="modal-bg" id="loginModal">
+  <div class="modal">
+    <h2>Admin Login</h2>
+    <input id="adminPass" type="password" placeholder="Enter admin password">
+    <p style="color:var(--muted);font-size:12px;">Default password: admin123 — change it in script.js (ADMIN_PASSWORD).</p>
+    <button onclick="tryLogin()">Login</button>
+    <button class="secondary" onclick="closeModal('loginModal')">Cancel</button>
+  </div>
+</div>
+<div class="modal-bg" id="adminModal">
+  <div class="modal" style="max-width:520px;">
+    <h2>Admin Panel</h2>
+    <label style="font-size:13px;color:var(--muted);">Site Title</label>
+    <input id="adminSiteTitle" style="margin-bottom:10px;">
+    <label style="font-size:13px;color:var(--muted);">Announcement Bar Text (leave empty to hide)</label>
+    <input id="adminAnnouncement" style="margin-bottom:14px;">
+    <p style="font-size:13px;color:var(--muted);margin-bottom:6px;">Toggle visible tools:</p>
+    <div id="adminToolToggles"></div>
+    <div style="margin-top:16px;">
+      <button onclick="saveAdminSettings()">Save Changes</button>
+      <button class="secondary" onclick="closeModal('adminModal')">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

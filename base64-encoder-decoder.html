@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Base64 Encoder & Decoder - Convert Text Online</title>
+<meta name="description" content="Encode text to Base64 or decode Base64 back to text instantly. Free online Base64 converter tool.">
+<link rel="canonical" href="https://YOURDOMAIN.com/base64-encoder-decoder.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="adminBanner">Admin mode active — <a href="#" onclick="closeAdmin();return false;" style="color:inherit;">exit</a></div>
+<header>
+  <a class="logo" href="index.html"><h1 id="siteTitle">Quick<span>Tools</span></h1></a>
+  <nav><a href="index.html">All Tools</a><a href="#" onclick="openAdminLogin();return false;">Admin</a></nav>
+</header>
+<div class="ad-slot"><!-- AdSense ad unit code goes here: Top Banner --></div>
+<main>
+  <p id="announcement"></p>
+  <p class="breadcrumb"><a href="index.html">Home</a> / Base64 Encoder/Decoder</p>
+  <h2>Base64 Encoder / Decoder</h2>
+  <p class="subtitle">Convert text to Base64 or decode Base64 back to plain text.</p>
+
+  <div class="tool-box">
+    <textarea id="b64Input" placeholder="Enter text..."></textarea>
+    <button onclick="b64Encode()">Encode →</button>
+    <button onclick="b64Decode()">← Decode</button>
+    <textarea id="b64Output" placeholder="Result appears here..."></textarea>
+  </div>
+
+  <div class="ad-slot"><!-- AdSense ad unit code goes here: In-content --></div>
+
+  <div class="content-block">
+    <h3>What is Base64 used for?</h3>
+    <p>Base64 encoding turns text or binary data into a safe text format, commonly used for embedding images in HTML/CSS, sending data in URLs, API tokens, and email attachments. This tool converts between plain text and Base64 in either direction.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>How to use it</h3>
+    <p>1. Type or paste your text into the input box.<br>2. Click "Encode" to convert to Base64, or paste Base64 text and click "Decode" to get plain text back.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq-item"><h4>Is Base64 encryption?</h4><p>No, Base64 is an encoding format, not encryption — it doesn't provide security, just a text-safe representation of data.</p></div>
+    <div class="faq-item"><h4>Does this work offline?</h4><p>The tool runs in your browser, so once the page is loaded it doesn't need a server round-trip to encode/decode.</p></div>
+  </div>
+</main>
+<footer>© 2026 QuickTools. All tools are free to use.</footer>
+
+<div class="modal-bg" id="loginModal">
+  <div class="modal">
+    <h2>Admin Login</h2>
+    <input id="adminPass" type="password" placeholder="Enter admin password">
+    <button onclick="tryLogin()">Login</button>
+    <button class="secondary" onclick="closeModal('loginModal')">Cancel</button>
+  </div>
+</div>
+<div class="modal-bg" id="adminModal">
+  <div class="modal" style="max-width:520px;">
+    <h2>Admin Panel</h2>
+    <label style="font-size:13px;color:var(--muted);">Site Title</label>
+    <input id="adminSiteTitle" style="margin-bottom:10px;">
+    <label style="font-size:13px;color:var(--muted);">Announcement Bar Text</label>
+    <input id="adminAnnouncement" style="margin-bottom:14px;">
+    <p style="font-size:13px;color:var(--muted);margin-bottom:6px;">Toggle visible tools:</p>
+    <div id="adminToolToggles"></div>
+    <div style="margin-top:16px;">
+      <button onclick="saveAdminSettings()">Save Changes</button>
+      <button class="secondary" onclick="closeModal('adminModal')">Close</button>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

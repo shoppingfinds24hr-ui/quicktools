@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free QR Code Generator - Create QR Codes Online Instantly</title>
+<meta name="description" content="Generate a free QR code from any link or text instantly. No signup, no watermark. Download and use anywhere.">
+<link rel="canonical" href="https://YOURDOMAIN.com/qr-code-generator.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="adminBanner">Admin mode active — <a href="#" onclick="closeAdmin();return false;" style="color:inherit;">exit</a></div>
+<header>
+  <a class="logo" href="index.html"><h1 id="siteTitle">Quick<span>Tools</span></h1></a>
+  <nav><a href="index.html">All Tools</a><a href="#" onclick="openAdminLogin();return false;">Admin</a></nav>
+</header>
+<div class="ad-slot"><!-- AdSense ad unit code goes here: Top Banner --></div>
+<main>
+  <p id="announcement"></p>
+  <p class="breadcrumb"><a href="index.html">Home</a> / QR Code Generator</p>
+  <h2>QR Code Generator</h2>
+  <p class="subtitle">Turn any link or text into a scannable QR code.</p>
+
+  <div class="tool-box">
+    <input id="qrInput" placeholder="Enter URL or text" oninput="genQR()">
+    <div id="qrOut"></div>
+  </div>
+
+  <div class="ad-slot"><!-- AdSense ad unit code goes here: In-content --></div>
+
+  <div class="content-block">
+    <h3>What can you use a QR code for?</h3>
+    <p>QR codes are useful for business cards, restaurant menus, product packaging, WiFi sharing, event invites, and payment links. Just type or paste your text or URL above and a scannable code appears instantly — right-click to save it as an image.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>How to use it</h3>
+    <p>1. Type or paste your link or text into the box.<br>2. The QR code generates automatically.<br>3. Right-click (or long-press on mobile) to save the image.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq-item"><h4>Do these QR codes expire?</h4><p>No, the code encodes your text/link directly and works forever — there's no tracking server involved.</p></div>
+    <div class="faq-item"><h4>Can I generate a QR code for WiFi or contact info?</h4><p>Yes, paste the appropriately formatted string (e.g. WIFI:S:name;T:WPA;P:password;;) and it will encode correctly.</p></div>
+  </div>
+</main>
+<footer>© 2026 QuickTools. All tools are free to use.</footer>
+
+<div class="modal-bg" id="loginModal">
+  <div class="modal">
+    <h2>Admin Login</h2>
+    <input id="adminPass" type="password" placeholder="Enter admin password">
+    <button onclick="tryLogin()">Login</button>
+    <button class="secondary" onclick="closeModal('loginModal')">Cancel</button>
+  </div>
+</div>
+<div class="modal-bg" id="adminModal">
+  <div class="modal" style="max-width:520px;">
+    <h2>Admin Panel</h2>
+    <label style="font-size:13px;color:var(--muted);">Site Title</label>
+    <input id="adminSiteTitle" style="margin-bottom:10px;">
+    <label style="font-size:13px;color:var(--muted);">Announcement Bar Text</label>
+    <input id="adminAnnouncement" style="margin-bottom:14px;">
+    <p style="font-size:13px;color:var(--muted);margin-bottom:6px;">Toggle visible tools:</p>
+    <div id="adminToolToggles"></div>
+    <div style="margin-top:16px;">
+      <button onclick="saveAdminSettings()">Save Changes</button>
+      <button class="secondary" onclick="closeModal('adminModal')">Close</button>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
