@@ -6,6 +6,7 @@ const TOOLS = [
   {id:"percentage-calculator", name:"Percentage Calculator", desc:"Quick percentage math.", url:"percentage-calculator.html"},
   {id:"qr-code-generator", name:"QR Code Generator", desc:"Turn any link or text into a QR code.", url:"qr-code-generator.html"},
   {id:"base64-encoder-decoder", name:"Base64 Encoder/Decoder", desc:"Encode or decode text to Base64.", url:"base64-encoder-decoder.html"},
+  {id:"link-generator", name:"Link Generator", desc:"Shorten a URL and turn it into a QR code.", url:"link-generator.html"},
 ];
 
 function loadSiteSettings(){
@@ -75,6 +76,18 @@ function genQR(){
   new QRCode(out, { text: val, width: 180, height: 180 });
 }
 
+/* Pre-fill QR input if arriving from Link Generator with ?value= */
+function prefillQRFromQuery(){
+  const qrInputEl = document.getElementById("qrInput");
+  if(!qrInputEl) return;
+  const params = new URLSearchParams(window.location.search);
+  const val = params.get("value");
+  if(val){
+    qrInputEl.value = val;
+    genQR();
+  }
+}
+
 /* ---------- Base64 ---------- */
 function b64Encode(){
   try{ document.getElementById("b64Output").value = btoa(document.getElementById("b64Input").value); }
@@ -83,6 +96,39 @@ function b64Encode(){
 function b64Decode(){
   try{ document.getElementById("b64Output").value = atob(document.getElementById("b64Input").value); }
   catch(e){ document.getElementById("b64Output").value = "Error: invalid Base64 input"; }
+}
+
+/* ---------- Link Generator ---------- */
+async function shortenLink(){
+  const input = document.getElementById("lgInput").value.trim();
+  const errorEl = document.getElementById("lgError");
+  const resultBox = document.getElementById("lgResultBox");
+  errorEl.style.display = "none";
+  resultBox.style.display = "none";
+
+  if(!input){ errorEl.textContent = "Please paste a URL first."; errorEl.style.display = "block"; return; }
+  let url = input;
+  if(!/^https?:\/\//i.test(url)) url = "https://" + url;
+
+  try{
+    const res = await fetch("https://is.gd/create.php?format=json&url=" + encodeURIComponent(url));
+    const data = await res.json();
+    if(data.shorturl){
+      document.getElementById("lgOutput").value = data.shorturl;
+      resultBox.style.display = "block";
+    } else {
+      errorEl.textContent = "Couldn't shorten this link. Check the URL and try again.";
+      errorEl.style.display = "block";
+    }
+  } catch(e){
+    errorEl.textContent = "Network error — the shortening service may be unavailable right now.";
+    errorEl.style.display = "block";
+  }
+}
+function sendToQR(){
+  const link = document.getElementById("lgOutput").value;
+  if(!link) return;
+  window.location.href = "qr-code-generator.html?value=" + encodeURIComponent(link);
 }
 
 /* ---------- Admin panel ---------- */
@@ -133,4 +179,5 @@ function closeAdmin(){
 document.addEventListener("DOMContentLoaded", () => {
   loadSiteSettings();
   renderHomeGrid();
+  prefillQRFromQuery();
 });
