@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free QR Code Scanner - Decode QR Code from Image Online</title>
+<meta name="description" content="Upload a QR code image and instantly decode the link or text hidden inside it. Free online QR code scanner/reader, no app needed.">
+<link rel="canonical" href="https://shoppingfinds24hr-ui.github.io/quicktools/qr-code-scanner.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="adminBanner">Admin mode active — <a href="#" onclick="closeAdmin();return false;" style="color:inherit;">exit</a></div>
+<header>
+  <a class="logo" href="index.html"><h1 id="siteTitle">Quick<span>Tools</span></h1></a>
+  <nav><a href="index.html">All Tools</a><a href="#" onclick="openAdminLogin();return false;">Admin</a></nav>
+</header>
+<div class="ad-slot"><!-- AdSense ad unit code goes here: Top Banner --></div>
+<main>
+  <p id="announcement"></p>
+  <p class="breadcrumb"><a href="index.html">Home</a> / QR Code Scanner</p>
+  <h2>QR Code Scanner</h2>
+  <p class="subtitle">Upload a QR code image to reveal the link or text hidden inside it.</p>
+
+  <div class="tool-box">
+    <input type="file" id="qrFileInput" accept="image/*" onchange="scanQRImage(event)">
+    <div id="qrScanPreview" style="margin-top:12px;"></div>
+    <div id="qrScanResultBox" style="display:none;margin-top:14px;">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:6px;">Decoded content:</p>
+      <input id="qrScanOutput" readonly>
+      <button class="secondary" onclick="copyText('qrScanOutput')">Copy</button>
+      <button onclick="openScannedLink()">Open Link</button>
+    </div>
+    <p id="qrScanError" style="color:var(--danger);font-size:13px;display:none;margin-top:8px;"></p>
+  </div>
+
+  <div class="ad-slot"><!-- AdSense ad unit code goes here: In-content --></div>
+
+  <div class="content-block">
+    <h3>Why use a QR code scanner online?</h3>
+    <p>Sometimes you have a QR code as an image file — a screenshot, a downloaded flyer, or a saved photo — but no phone camera handy, or the code came from a screen rather than a physical print. This tool decodes it right in your browser and shows you the exact link or text it contains, before you click through.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>How to use it</h3>
+    <p>1. Click the upload box and choose a QR code image from your device.<br>2. The link or text hidden inside is decoded automatically.<br>3. Copy the result, or click "Open Link" to visit it directly.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq-item"><h4>Is my image uploaded to a server?</h4><p>No, the image is decoded entirely in your browser — it is never sent anywhere.</p></div>
+    <div class="faq-item"><h4>What image formats are supported?</h4><p>Common formats like PNG, JPG, and WEBP all work.</p></div>
+  </div>
+</main>
+<footer>© 2026 QuickTools. All tools are free to use. | <a href="privacy-policy.html">Privacy Policy</a></footer>
+
+<div class="modal-bg" id="loginModal">
+  <div class="modal">
+    <h2>Admin Login</h2>
+    <input id="adminPass" type="password" placeholder="Enter admin password">
+    <button onclick="tryLogin()">Login</button>
+    <button class="secondary" onclick="closeModal('loginModal')">Cancel</button>
+  </div>
+</div>
+<div class="modal-bg" id="adminModal">
+  <div class="modal" style="max-width:520px;">
+    <h2>Admin Panel</h2>
+    <label style="font-size:13px;color:var(--muted);">Site Title</label>
+    <input id="adminSiteTitle" style="margin-bottom:10px;">
+    <label style="font-size:13px;color:var(--muted);">Announcement Bar Text</label>
+    <input id="adminAnnouncement" style="margin-bottom:14px;">
+    <p style="font-size:13px;color:var(--muted);margin-bottom:6px;">Toggle visible tools:</p>
+    <div id="adminToolToggles"></div>
+    <div style="margin-top:16px;">
+      <button onclick="saveAdminSettings()">Save Changes</button>
+      <button class="secondary" onclick="closeModal('adminModal')">Close</button>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
