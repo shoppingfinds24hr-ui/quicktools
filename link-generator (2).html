@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Link Generator - Shorten URLs & Create QR-Ready Links Online</title>
+<meta name="description" content="Free online link generator. Shorten any long URL instantly, copy it, or turn it straight into a QR code. No signup required.">
+<link rel="canonical" href="https://shoppingfinds24hr-ui.github.io/quicktools/link-generator.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="adminBanner">Admin mode active — <a href="#" onclick="closeAdmin();return false;" style="color:inherit;">exit</a></div>
+<header>
+  <a class="logo" href="index.html"><h1 id="siteTitle">Quick<span>Tools</span></h1></a>
+  <nav><a href="index.html">All Tools</a><a href="#" onclick="openAdminLogin();return false;">Admin</a></nav>
+</header>
+<div class="ad-slot"><!-- AdSense ad unit code goes here: Top Banner --></div>
+<main>
+  <p id="announcement"></p>
+  <p class="breadcrumb"><a href="index.html">Home</a> / Link Generator</p>
+  <h2>Link Generator</h2>
+  <p class="subtitle">Shorten any long URL and copy it, or turn it straight into a QR code.</p>
+
+  <div class="tool-box">
+    <input id="lgInput" placeholder="Paste your long URL here (e.g. https://example.com/very/long/link)">
+    <button onclick="shortenLink()">Generate Short Link</button>
+    <div id="lgResultBox" style="display:none;margin-top:14px;">
+      <input id="lgOutput" readonly>
+      <button class="secondary" onclick="copyText('lgOutput')">Copy Link</button>
+      <button onclick="sendToQR()">Generate QR Code →</button>
+    </div>
+    <p id="lgError" style="color:var(--danger);font-size:13px;display:none;margin-top:8px;"></p>
+  </div>
+
+  <div class="ad-slot"><!-- AdSense ad unit code goes here: In-content --></div>
+
+  <div class="ad-slot"><!-- AdSense ad unit code goes here: In-content --></div>
+
+  <div class="tool-box">
+    <h3 style="margin-top:0;font-size:16px;">Or generate a link from text</h3>
+    <p style="color:var(--muted);font-size:13px;margin-top:0;">Paste any note, message, or text below — get a shareable link that shows that exact text when opened.</p>
+    <textarea id="lgTextInput" placeholder="Paste or type your text/note here..."></textarea>
+    <button onclick="textToLink()">Generate Link from Text</button>
+    <div id="lgTextResultBox" style="display:none;margin-top:14px;">
+      <input id="lgTextOutput" readonly>
+      <button class="secondary" onclick="copyText('lgTextOutput')">Copy Link</button>
+    </div>
+    <p id="lgTextError" style="color:var(--danger);font-size:13px;display:none;margin-top:8px;"></p>
+  </div>
+
+  <div class="content-block">
+    <h3>Why shorten a link?</h3>
+    <p>Long URLs are hard to share, hard to type, and take up more space in a QR code (making it denser and harder to scan). A short link is easier to share on social media, print on business cards or flyers, and turns into a cleaner, faster-scanning QR code.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>How to use it</h3>
+    <p>1. Paste your long link into the box above.<br>2. Click "Generate Short Link" — a shortened version appears.<br>3. Copy it directly, or click "Generate QR Code" to jump straight to the QR tool with your short link pre-filled.</p>
+  </div>
+
+  <div class="content-block">
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq-item"><h4>Do these short links expire?</h4><p>Short links are created via a third-party shortening service and generally remain active long-term, though this tool does not control their uptime.</p></div>
+    <div class="faq-item"><h4>Is this useful for QR codes?</h4><p>Yes — shorter URLs create simpler, more reliable QR codes that scan faster, especially at small print sizes.</p></div>
+  </div>
+</main>
+<footer>© 2026 QuickTools. All tools are free to use. | <a href="privacy-policy.html">Privacy Policy</a></footer>
+
+<div class="modal-bg" id="loginModal">
+  <div class="modal">
+    <h2>Admin Login</h2>
+    <input id="adminPass" type="password" placeholder="Enter admin password">
+    <button onclick="tryLogin()">Login</button>
+    <button class="secondary" onclick="closeModal('loginModal')">Cancel</button>
+  </div>
+</div>
+<div class="modal-bg" id="adminModal">
+  <div class="modal" style="max-width:520px;">
+    <h2>Admin Panel</h2>
+    <label style="font-size:13px;color:var(--muted);">Site Title</label>
+    <input id="adminSiteTitle" style="margin-bottom:10px;">
+    <label style="font-size:13px;color:var(--muted);">Announcement Bar Text</label>
+    <input id="adminAnnouncement" style="margin-bottom:14px;">
+    <p style="font-size:13px;color:var(--muted);margin-bottom:6px;">Toggle visible tools:</p>
+    <div id="adminToolToggles"></div>
+    <div style="margin-top:16px;">
+      <button onclick="saveAdminSettings()">Save Changes</button>
+      <button class="secondary" onclick="closeModal('adminModal')">Close</button>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
