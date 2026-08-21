@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shared Text - QuickTools</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a class="logo" href="index.html"><h1 id="siteTitle">Quick<span>Tools</span></h1></a>
+  <nav><a href="index.html">All Tools</a></nav>
+</header>
+<main>
+  <h2>Shared Text</h2>
+  <p class="subtitle">Someone shared this text with you via a QuickTools link.</p>
+  <div class="tool-box">
+    <textarea id="viewOutput" readonly style="min-height:220px;"></textarea>
+    <button class="secondary" onclick="copyText('viewOutput')">Copy Text</button>
+  </div>
+  <p id="viewError" style="color:var(--danger);font-size:13px;display:none;">This link doesn't contain any valid text.</p>
+</main>
+<footer>© 2026 QuickTools. All tools are free to use. | <a href="privacy-policy.html">Privacy Policy</a></footer>
+<script>
+  function loadSharedText(){
+    const params = new URLSearchParams(window.location.search);
+    const data = params.get("data");
+    const out = document.getElementById("viewOutput");
+    const err = document.getElementById("viewError");
+    if(!data){ err.style.display = "block"; return; }
+    try{
+      const decoded = decodeURIComponent(escape(atob(decodeURIComponent(data))));
+      out.value = decoded;
+    } catch(e){
+      err.style.display = "block";
+    }
+  }
+  function copyText(id){ navigator.clipboard.writeText(document.getElementById(id).value); }
+  loadSharedText();
+</script>
+</body>
+</html>
